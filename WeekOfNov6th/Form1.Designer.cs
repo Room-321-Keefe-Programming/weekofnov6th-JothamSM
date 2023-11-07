@@ -34,9 +34,9 @@
             this.rdoTempConverter2 = new System.Windows.Forms.RadioButton();
             this.grpTempConverter = new System.Windows.Forms.GroupBox();
             this.cmbMoneyConverter = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tempConversion = new System.Windows.Forms.Button();
             this.rtbOutput = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.moneyConversion = new System.Windows.Forms.Button();
             this.txtInput2 = new System.Windows.Forms.TextBox();
             this.txtInput1 = new System.Windows.Forms.TextBox();
             this.lblInput1 = new System.Windows.Forms.Label();
@@ -48,6 +48,7 @@
             this.chkInchToMeter = new System.Windows.Forms.CheckBox();
             this.chkKiloToMiles = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.grpTempConverter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,20 +111,33 @@
             // 
             this.cmbMoneyConverter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMoneyConverter.FormattingEnabled = true;
+            this.cmbMoneyConverter.Items.AddRange(new object[] {
+            "Dollar - Yen",
+            "Yen - Dollar",
+            "Dollar - UGX",
+            "UGX - Dollar",
+            "Dollar - KES",
+            "KES - Dollar",
+            "Dollar - EUR",
+            "EUR - Dollar",
+            "Dollar - GBP",
+            "GBP - Dollar"});
             this.cmbMoneyConverter.Location = new System.Drawing.Point(321, 142);
             this.cmbMoneyConverter.Name = "cmbMoneyConverter";
             this.cmbMoneyConverter.Size = new System.Drawing.Size(121, 32);
             this.cmbMoneyConverter.TabIndex = 5;
+            this.cmbMoneyConverter.SelectedIndexChanged += new System.EventHandler(this.cmbMoneyConverter_SelectedIndexChanged);
             // 
-            // button1
+            // tempConversion
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(846, 82);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tempConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempConversion.Location = new System.Drawing.Point(846, 82);
+            this.tempConversion.Name = "tempConversion";
+            this.tempConversion.Size = new System.Drawing.Size(86, 33);
+            this.tempConversion.TabIndex = 6;
+            this.tempConversion.Text = "Convert";
+            this.tempConversion.UseVisualStyleBackColor = true;
+            this.tempConversion.Click += new System.EventHandler(this.tempConversion_Click);
             // 
             // rtbOutput
             // 
@@ -134,15 +148,16 @@
             this.rtbOutput.TabIndex = 7;
             this.rtbOutput.Text = "";
             // 
-            // button2
+            // moneyConversion
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(846, 136);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 32);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.moneyConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moneyConversion.Location = new System.Drawing.Point(846, 136);
+            this.moneyConversion.Name = "moneyConversion";
+            this.moneyConversion.Size = new System.Drawing.Size(86, 32);
+            this.moneyConversion.TabIndex = 8;
+            this.moneyConversion.Text = "Convert";
+            this.moneyConversion.UseVisualStyleBackColor = true;
+            this.moneyConversion.Click += new System.EventHandler(this.moneyConversion_Click);
             // 
             // txtInput2
             // 
@@ -219,10 +234,11 @@
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(846, 243);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 31);
+            this.button3.Size = new System.Drawing.Size(86, 31);
             this.button3.TabIndex = 16;
-            this.button3.Text = "button3";
+            this.button3.Text = "Convert";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // chkInchToMeter
             // 
@@ -251,16 +267,28 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(846, 287);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 31);
+            this.button4.Size = new System.Drawing.Size(86, 31);
             this.button4.TabIndex = 19;
-            this.button4.Text = "button4";
+            this.button4.Text = "Convert";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(801, 417);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(152, 23);
+            this.ClearButton.TabIndex = 20;
+            this.ClearButton.Text = "Clear OutputBox";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 648);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.chkKiloToMiles);
             this.Controls.Add(this.chkInchToMeter);
@@ -272,9 +300,9 @@
             this.Controls.Add(this.lblInput1);
             this.Controls.Add(this.txtInput1);
             this.Controls.Add(this.txtInput2);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.moneyConversion);
             this.Controls.Add(this.rtbOutput);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tempConversion);
             this.Controls.Add(this.cmbMoneyConverter);
             this.Controls.Add(this.grpTempConverter);
             this.Controls.Add(this.lblMoneyConvert);
@@ -296,9 +324,9 @@
         private System.Windows.Forms.RadioButton rdoTempConverter2;
         private System.Windows.Forms.GroupBox grpTempConverter;
         private System.Windows.Forms.ComboBox cmbMoneyConverter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button tempConversion;
         private System.Windows.Forms.RichTextBox rtbOutput;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button moneyConversion;
         private System.Windows.Forms.TextBox txtInput2;
         private System.Windows.Forms.TextBox txtInput1;
         private System.Windows.Forms.Label lblInput1;
@@ -310,6 +338,7 @@
         private System.Windows.Forms.CheckBox chkInchToMeter;
         private System.Windows.Forms.CheckBox chkKiloToMiles;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 
