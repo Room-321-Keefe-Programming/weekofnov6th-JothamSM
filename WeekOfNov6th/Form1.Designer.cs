@@ -49,6 +49,9 @@
             this.chkKiloToMiles = new System.Windows.Forms.CheckBox();
             this.button4 = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.FileLdBtn = new System.Windows.Forms.Button();
+            this.WorkitThrough = new System.Windows.Forms.Button();
+            this.AlphaArray = new System.Windows.Forms.Button();
             this.grpTempConverter.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -283,11 +286,44 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
+            // FileLdBtn
+            // 
+            this.FileLdBtn.Location = new System.Drawing.Point(831, 388);
+            this.FileLdBtn.Name = "FileLdBtn";
+            this.FileLdBtn.Size = new System.Drawing.Size(101, 23);
+            this.FileLdBtn.TabIndex = 21;
+            this.FileLdBtn.Text = "Load Text File";
+            this.FileLdBtn.UseVisualStyleBackColor = true;
+            this.FileLdBtn.Click += new System.EventHandler(this.FileLdBtn_Click);
+            // 
+            // WorkitThrough
+            // 
+            this.WorkitThrough.Location = new System.Drawing.Point(750, 388);
+            this.WorkitThrough.Name = "WorkitThrough";
+            this.WorkitThrough.Size = new System.Drawing.Size(75, 23);
+            this.WorkitThrough.TabIndex = 22;
+            this.WorkitThrough.Text = "Work It Out";
+            this.WorkitThrough.UseVisualStyleBackColor = true;
+            this.WorkitThrough.Click += new System.EventHandler(this.WorkitThrough_Click);
+            // 
+            // AlphaArray
+            // 
+            this.AlphaArray.Location = new System.Drawing.Point(669, 387);
+            this.AlphaArray.Name = "AlphaArray";
+            this.AlphaArray.Size = new System.Drawing.Size(75, 23);
+            this.AlphaArray.TabIndex = 23;
+            this.AlphaArray.Text = "Alphabet";
+            this.AlphaArray.UseVisualStyleBackColor = true;
+            this.AlphaArray.Click += new System.EventHandler(this.AlphaArray_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 648);
+            this.Controls.Add(this.AlphaArray);
+            this.Controls.Add(this.WorkitThrough);
+            this.Controls.Add(this.FileLdBtn);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.chkKiloToMiles);
@@ -339,6 +375,9 @@
         private System.Windows.Forms.CheckBox chkKiloToMiles;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button FileLdBtn;
+        private System.Windows.Forms.Button WorkitThrough;
+        private System.Windows.Forms.Button AlphaArray;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -189,6 +190,97 @@ namespace WeekOfNov6th
         private void ClearButton_Click(object sender, EventArgs e)
         {
             rtbOutput.Text = string.Empty;
+        }
+
+        private void FileLdBtn_Click(object sender, EventArgs e)
+        {
+            string filePath = @"C:\Users\jotha\OneDrive\Documents\GitHub\weekofnov6th-JothamSM\WeekOfNov6th\test.txt";
+
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    rtbOutput.AppendText(line + Environment.NewLine); // Append each line to the RichTextBox
+                }
+            }
+        }
+
+        private void WorkitThrough_Click(object sender, EventArgs e)
+        {
+            int n = Convert.ToInt32(txtInput1.Text); // Get the value of n from the input1 TextBox
+
+            if (n <= 0)
+            {
+                MessageBox.Show("Please enter a valid positive number for 'n'.");
+                return;
+            }
+
+            string filePath = @"C:\Users\jotha\OneDrive\Documents\GitHub\weekofnov6th-JothamSM\WeekOfNov6th\test.txt"; // Replace with the actual path to your text file
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string content = reader.ReadToEnd();
+                string[] words = content.Split(new char[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+                for (int i = n - 1; i < words.Length; i += n)
+                {
+                    rtbOutput.AppendText(words[i] + " ");
+                }
+            }
+        }
+
+        private void AlphaArray_Click(object sender, EventArgs e)
+        {
+            char[] letters = new char[26];
+
+            for (int i = 0; i < 26; i++)
+            {
+                letters[i] = (char)(65 + i); // ASCII code for 'A' is 65
+            }
+            for (int i = 0; i < letters.Length; i++)
+            {
+                char letter = letters[i];
+
+                if ("AEIOU".Contains(letter)) // Check if the letter is a vowel
+                {
+                    rtbOutput.Text += (char.ToUpper(letter) + " "); // Uppercase vowel
+                }
+                else
+                {
+                    rtbOutput.Text += (char.ToLower(letter) + " "); // Lowercase non-vowel
+                }
+            }
+
+            int j = letters.Length - 1;
+            int count = 0;
+
+            while (j >= 0)
+            {
+                char letter = letters[j];
+
+                if (count % 5 == 0)
+                {
+                    if (char.IsUpper(letter))
+                    {
+                        rtbOutput.Text += (char.ToLower(letter) + ", ");
+                    }
+                    else
+                    {
+                        rtbOutput.Text += (char.ToUpper(letter) + ", ");
+                    }
+                }
+                else
+                {
+                    rtbOutput.Text += (letter + " ");
+                }
+
+                j--;
+                count++;
+            }
+
+
         }
     }
 }
