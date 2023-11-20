@@ -217,7 +217,7 @@ namespace WeekOfNov6th
                 return;
             }
 
-            string filePath = @"..\..\test.txt"; // Replace with the actual path to your text file
+            string filePath = @"test.txt"; // Replace with the actual path to your text file
 
             using (StreamReader reader = new StreamReader(filePath))
             {
