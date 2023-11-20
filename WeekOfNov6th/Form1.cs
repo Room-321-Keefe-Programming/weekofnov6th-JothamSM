@@ -217,7 +217,7 @@ namespace WeekOfNov6th
                 return;
             }
 
-            string filePath = @"C:\Users\jotha\OneDrive\Documents\GitHub\weekofnov6th-JothamSM\WeekOfNov6th\test.txt"; // Replace with the actual path to your text file
+            string filePath = @"..\..\test.txt"; // Replace with the actual path to your text file
 
             using (StreamReader reader = new StreamReader(filePath))
             {
